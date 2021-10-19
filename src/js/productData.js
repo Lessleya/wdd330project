@@ -12,6 +12,7 @@ function convertToJson(res) {
 export default class ProductData {
     constructor() {}
 
+
     // get tents data
     getData() {
         return fetch(baseURL + `products/search/${category}`)
