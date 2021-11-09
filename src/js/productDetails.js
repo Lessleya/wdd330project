@@ -35,12 +35,23 @@ export default class ProductDetails {
       alt="${this.product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${this.product.FinalPrice}</p>
-    <p class="product__color">${this.product.Colors[0].ColorName}</p>
+    <p class="product__color">${this.renderColors(this.product.Colors)}</p>
     <p class="product__description">
     ${this.product.DescriptionHtmlSimple}
     </p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
     </div></section>`;
+  }
+
+  renderColors(colors){
+    return colors.map((color) => `
+    <div class = "color-radio">
+      <img src = "${color.ColorChipImageSrc} alt = "$color.ColorName">
+      <label for="color"> ${color.ColorName}"> </label>
+      <input name="color" type="radio" value="${color.ColorCode}"
+      </div>
+      `).join('');
+
   }
 }
